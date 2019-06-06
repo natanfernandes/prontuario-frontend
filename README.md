@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 React Ui-Material Admin Template
 ================================
 
@@ -24,3 +25,6 @@ Installation / Running
 License
 -------
 MIT
+=======
+# prontuario-frontend
+>>>>>>> 8fa6c1d45f8275cc13069b05fc2607c132dfbe48
