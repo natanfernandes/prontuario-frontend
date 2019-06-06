@@ -29,10 +29,14 @@ const data = {
   },
   dashBoardPage: {
     recentProducts: [
-      {id: 1, title: 'Samsung TV', text: 'Samsung 32 1080p 60Hz LED Smart HDTV.'},
-      {id: 2, title: 'Playstation 4', text: 'PlayStation 3 500 GB System'},
-      {id: 3, title: 'Apple iPhone 6', text: 'Apple iPhone 6 Plus 16GB Factory Unlocked GSM 4G '},
-      {id: 4, title: 'Apple MacBook', text: 'Apple MacBook Pro MD101LL/A 13.3-Inch Laptop'}
+      {id: 1, title: 'Consulta com Cardiologista', text: 'Hospital XXXXXX, Médico XXXX'},
+      {id: 2, title: 'Consulta com Dermatologista', text: 'Clínica XXXXXX, Médico XXXX'},
+      {id: 3, title: 'Consulta com Dentista', text: 'Clínica XXXXXX, Médico XXXX'},
+    ],
+    recentExams: [
+      {id: 1, title: 'Eletrocardiograma', text: 'Hospital XXXXXX, Médico XXXX'},
+      {id: 2, title: 'Ecocardiograma', text: 'Clínica XXXXXX, Médico XXXX'},
+      {id: 3, title: 'Raspagem', text: 'Clínica XXXXXX, Médico XXXX'},
     ],
     monthlySales: [
       {name: 'Jan', uv: 3700},
