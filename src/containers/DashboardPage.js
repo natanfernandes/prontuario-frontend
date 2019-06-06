@@ -1,14 +1,13 @@
 import React from 'react';
 import {cyan600, pink600, purple600, orange600} from 'material-ui/styles/colors';
-import Assessment from 'material-ui/svg-icons/action/assessment';
-import Face from 'material-ui/svg-icons/action/face';
-import ThumbUp from 'material-ui/svg-icons/action/thumb-up';
-import ShoppingCart from 'material-ui/svg-icons/action/shopping-cart';
+import Cirurgia from 'material-ui/svg-icons/communication/business';
+import Favorite from 'material-ui/svg-icons/action/favorite';
+import Book from 'material-ui/svg-icons/action/book';
+import Hospital from 'material-ui/svg-icons/maps/local-hospital';
 import InfoBox from '../components/dashboard/InfoBox';
-import NewOrders from '../components/dashboard/NewOrders';
 import MonthlySales from '../components/dashboard/MonthlySales';
-import BrowserUsage from '../components/dashboard/BrowserUsage';
 import RecentlyProducts from '../components/dashboard/RecentlyProducts';
+import RecentlyExams from '../components/dashboard/RecentlyExams';
 import globalStyles from '../styles';
 import Data from '../data';
 
@@ -21,45 +20,41 @@ const DashboardPage = () => {
       <div className="row">
 
         <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 ">
-          <InfoBox Icon={ShoppingCart}
+          <InfoBox Icon={Hospital}
                    color={pink600}
-                   title="Total Profit"
-                   value="1500k"
+                   title="Consultas"
+                   value="3"
           />
         </div>
 
 
         <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 ">
-          <InfoBox Icon={ThumbUp}
+          <InfoBox Icon={Book}
                    color={cyan600}
-                   title="Likes"
-                   value="4231"
+                   title="Exames"
+                   value="9"
           />
         </div>
 
         <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 ">
-          <InfoBox Icon={Assessment}
+          <InfoBox Icon={Favorite}
                    color={purple600}
-                   title="Sales"
-                   value="460"
+                   title="Cirurgias"
+                   value="0"
           />
         </div>
 
         <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 ">
-          <InfoBox Icon={Face}
+          <InfoBox Icon={Cirurgia}
                    color={orange600}
-                   title="New Members"
-                   value="248"
+                   title="Internações"
+                   value="1"
           />
         </div>
       </div>
 
       <div className="row">
-        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-md m-b-15">
-          <NewOrders data={Data.dashBoardPage.newOrders}/>
-        </div>
-
-        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 m-b-15">
+        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-15">
           <MonthlySales data={Data.dashBoardPage.monthlySales}/>
         </div>
       </div>
@@ -70,7 +65,7 @@ const DashboardPage = () => {
         </div>
 
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-          <BrowserUsage data={Data.dashBoardPage.browserUsage}/>
+          <RecentlyExams data={Data.dashBoardPage.recentExams}/>
         </div>
       </div>
     </div>

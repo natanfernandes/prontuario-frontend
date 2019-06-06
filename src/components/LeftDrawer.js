@@ -27,7 +27,7 @@ const LeftDrawer = (props) => {
     avatar: {
       div: {
         padding: '15px 0 20px 15px',
-        backgroundImage:  'url(' + require('../images/material_bg.png') + ')',
+        backgroundImage:  'url(' + require('../images/medical.jpg') + ')',
         height: 45
       },
       icon: {
@@ -37,7 +37,12 @@ const LeftDrawer = (props) => {
         boxShadow: '0px 0px 0px 8px rgba(0,0,0,0.2)'
       },
       span: {
-        paddingTop: 12,
+        display: 'block',
+        color: 'white',
+        fontWeight: 'bold',
+        textShadow: '1px 1px #444'
+      },
+      span2: {
         display: 'block',
         color: 'white',
         fontWeight: 300,
@@ -51,13 +56,14 @@ const LeftDrawer = (props) => {
       docked={true}
       open={navDrawerOpen}>
         <div style={styles.logo}>
-          Material Admin
+          E-Prontuário
         </div>
         <div style={styles.avatar.div}>
-          <Avatar src="http://www.material-ui.com/images/uxceo-128.jpg"
+          <Avatar src={require('../images/user.png')}
                   size={50}
                   style={styles.avatar.icon}/>
-          <span style={styles.avatar.span}>{props.username}</span>
+          <span style={styles.avatar.span}>Nome</span>
+          <span style={styles.avatar.span2}>Paciente</span>
         </div>
         <div>
           {props.menus.map((menu, index) =>
