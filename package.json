@@ -21,8 +21,6 @@
     "test:watch": "npm run test -- --watch",
     "open:cover": "npm run test:cover && open coverage/index.html"
   },
-  "author": "Rafael Zeffa",
-  "license": "MIT",
   "dependencies": {
     "flexboxgrid": "6.3.1",
     "font-awesome": "4.7.0",
@@ -94,6 +92,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/rafaelhz/react-material-admin-template"
+    "url": "https://github.com/natanfernandes/prontuario-frontend"
   }
 }
