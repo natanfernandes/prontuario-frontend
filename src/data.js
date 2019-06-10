@@ -11,7 +11,11 @@ import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 const data = {
   menus: [
     { text: 'DashBoard', icon: <Assessment/>, link: '/dashboard' },
-    { text: 'Form Page', icon: <Web/>, link: '/form' },
+    { text: 'Dados Médicos', icon: <Web/>, link: '/medicData' },
+    { text: 'Consultas', icon: <GridOn/>, link: '/consults' },
+    { text: 'Exames', icon: <GridOn/>, link: '/exams' },
+    { text: 'Cirurgias', icon: <GridOn/>, link: '/surgeries' },
+    { text: 'Internações', icon: <GridOn/>, link: '/internations' },
     { text: 'Table Page', icon: <GridOn/>, link: '/table' },
     { text: 'Login Page', icon: <PermIdentity/>, link: '/login' }
   ],

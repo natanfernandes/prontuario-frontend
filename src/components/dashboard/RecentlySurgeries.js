@@ -4,14 +4,16 @@ import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
+import Button from '@material-ui/core/Button';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import {grey400, cyan600, white} from 'material-ui/styles/colors';
 import {typography} from 'material-ui/styles';
+import {Link} from 'react-router';
 
-const RecentlyProducts = (props) => {
+const RecentlySurgeries = (props) => {
 
   const styles = {
     subheader: {
@@ -40,7 +42,14 @@ const RecentlyProducts = (props) => {
   return (
     <Paper>
       <List>
-        <Subheader style={styles.subheader}>Consultas Recentes</Subheader>
+        <Subheader style={styles.subheader}><div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 m-b-15 ">
+              Cirurgias Recentes
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 m-b-15 ">
+              <Link to="/surgeries"><Button variant="contained">Ver tudo</Button></Link>
+            </div>
+          </div></Subheader>
         {props.data.map(item =>
           <div key={item.title}>
             <ListItem
@@ -57,8 +66,8 @@ const RecentlyProducts = (props) => {
   );
 };
 
-RecentlyProducts.propTypes = {
+RecentlySurgeries.propTypes = {
   data: PropTypes.array
 };
 
-export default RecentlyProducts;
+export default RecentlySurgeries;

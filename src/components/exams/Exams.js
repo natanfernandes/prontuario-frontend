@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react';
 import Avatar from 'material-ui/Avatar';
 import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
-import Button from '@material-ui/core/Button';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 import IconButton from 'material-ui/IconButton';
@@ -12,9 +11,8 @@ import MenuItem from 'material-ui/MenuItem';
 import {grey400,red500, white} from 'material-ui/styles/colors';
 import {typography} from 'material-ui/styles';
 import Wallpaper from 'material-ui/svg-icons/device/wallpaper';
-import {Link} from 'react-router';
 
-const RecentlyExams = (props) => {
+const Exams = (props) => {
 
   const styles = {
     subheader: {
@@ -44,11 +42,8 @@ const RecentlyExams = (props) => {
     <Paper>
       <List>
         <Subheader style={styles.subheader}><div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 m-b-15 ">
-              Exames Recentes
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 m-b-15 ">
-              <Link to="/exams"><Button variant="contained">Ver tudo</Button></Link>
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-15 ">
+              Todos Exames
             </div>
           </div></Subheader>
         {props.data.map(item =>
@@ -67,8 +62,8 @@ const RecentlyExams = (props) => {
   );
 };
 
-RecentlyExams.propTypes = {
+Exams.propTypes = {
   data: PropTypes.array
 };
 
-export default RecentlyExams;
+export default Exams;
