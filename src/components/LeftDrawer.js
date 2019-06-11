@@ -55,15 +55,16 @@ class LeftDrawer extends React.Component {
       sessionType: ''
     };
   }
+  
+  componentWillMount() {
+    this.setState({
+      sessionType:localStorage.getItem('tipo')
+    });
+  }
   componentWillReceiveProps(nextProps) {
     if (this.props.navDrawerOpen !== nextProps.navDrawerOpen) {
       this.setState({ navDrawerOpen: nextProps.navDrawerOpen });
     }
-  }
-  componentWillMount() {
-    this.setState({
-      sessionType:localStorage.getItem('tipo')
-    })
   }
   render() {
     return (

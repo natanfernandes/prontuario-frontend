@@ -1,13 +1,7 @@
 import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Paper from "material-ui/Paper";
-import RaisedButton from "material-ui/RaisedButton";
-import FlatButton from "material-ui/FlatButton";
-import Checkbox from "material-ui/Checkbox";
 import { grey500, white } from "material-ui/styles/colors";
-import PersonAdd from "material-ui/svg-icons/social/person-add";
-import Help from "material-ui/svg-icons/action/help";
-import TextField from "material-ui/TextField";
 import { Link } from "react-router";
 import ThemeDefault from "../theme-default";
 import Avatar from "material-ui/Avatar";
@@ -74,7 +68,7 @@ const SelectPerfilType = () => {
 
     const setSessionPerfilType = (type) => {
         localStorage.setItem('tipo',type);
-    }
+    };
    
   return (
     <MuiThemeProvider muiTheme={ThemeDefault}>

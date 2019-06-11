@@ -18,7 +18,7 @@ class DashboardPage extends React.Component {
   componentWillMount() {
     this.setState({
       sessionType:localStorage.getItem("tipo")
-    })
+    });
   }
   render() {
     return (
