@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react";
 import Avatar from "material-ui/Avatar";
 import { List, ListItem } from "material-ui/List";
-import Button from '@material-ui/core/Button';
+import RaisedButton from 'material-ui/RaisedButton';
 import Subheader from "material-ui/Subheader";
 import Divider from "material-ui/Divider";
 import Paper from "material-ui/Paper";
@@ -44,7 +44,7 @@ const RecentlyInternations = props => {
               Internações Recentes
             </div>
             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 m-b-15 ">
-              <Link to="/internations"><Button variant="contained">Ver tudo</Button></Link>
+              <Link to="/internations"><RaisedButton label="Ver tudo"  default={true} style={{ height:'100%'}} /></Link>
             </div>
           </div>
         </Subheader>
