@@ -11,9 +11,10 @@ import IconMenu from "material-ui/IconMenu";
 import MenuItem from "material-ui/MenuItem";
 import { grey400, pink600, white } from "material-ui/styles/colors";
 import { typography } from "material-ui/styles";
+import FlatButton from 'material-ui/FlatButton';
 import {Link} from 'react-router';
 
-const RecentlyInternations = props => {
+const PacientsInHospital = props => {
   const styles = {
     subheader: {
       fontSize: 24,
@@ -31,7 +32,7 @@ const RecentlyInternations = props => {
 
   const rightIconMenu = (
     <IconMenu iconButtonElement={iconButtonElement}>
-      <MenuItem>View</MenuItem>
+      <MenuItem>Inicar Consulta</MenuItem>
     </IconMenu>
   );
 
@@ -40,11 +41,10 @@ const RecentlyInternations = props => {
       <List>
         <Subheader style={styles.subheader}>
           <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8 m-b-15 ">
-              Internações Recentes
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 m-b-15 ">
-              <Link to="/app/internations"><RaisedButton label="Ver tudo"  default={true} style={{ height:'100%'}} /></Link>
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-15 " style={{textAlign:'center'}}>
+              Pacientes No Hospital
+              <br />
+              <b>Hospital XXXXXXXXXX</b>
             </div>
           </div>
         </Subheader>
@@ -54,7 +54,7 @@ const RecentlyInternations = props => {
               leftAvatar={<Avatar src={require("../../images/doctor.png")} />}
               primaryText={item.title}
               secondaryText={item.text}
-              rightIconButton={rightIconMenu}
+              rightIconButton={<FlatButton label="Iniciar Consulta" style={{color:'green'}}/>}
             />
             <Divider inset={true} />
           </div>
@@ -64,8 +64,8 @@ const RecentlyInternations = props => {
   );
 };
 
-RecentlyInternations.propTypes = {
+PacientsInHospital.propTypes = {
   data: PropTypes.array
 };
 
-export default RecentlyInternations;
+export default PacientsInHospital;

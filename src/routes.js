@@ -3,6 +3,7 @@ import { Route, IndexRoute } from 'react-router';
 import App from './containers/App';
 import NotFoundPage from './containers/NotFoundPage.js';
 import LoginPage from './containers/LoginPage';
+import SelectPerfilType from './containers/SelectPerfilType';
 import MedicData from './containers/MedicData';
 import Exams from './containers/Exams';
 import Consults from './containers/Consults';
@@ -13,9 +14,10 @@ import Internations from './containers/Internations';
 
 export default (
   <Route>
-    <Route path="login" component={LoginPage}/>
-    <Route path="/" component={App}>
-      <IndexRoute component={Dashboard}/>
+    <Route path="/" component={LoginPage}/>
+    <Route path="/perfilType" component={SelectPerfilType}/>
+    <Route path="/app" component={App}>
+      {/* <IndexRoute component={Dashboard}/> */}
       <Route path="dashboard" component={Dashboard}/>
       <Route path="medicData" component={MedicData}/>
       <Route path="consults" component={Consults}/>
@@ -23,6 +25,7 @@ export default (
       <Route path="surgeries" component={Surgeries}/>
       <Route path="internations" component={Internations}/>
       <Route path="table" component={TablePage}/>
+      <Route path="login" component={LoginPage}/>
       <Route path="*" component={NotFoundPage}/>
     </Route>
   </Route>

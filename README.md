@@ -1,30 +1,7 @@
-<<<<<<< HEAD
-React Ui-Material Admin Template
-================================
+1. `npm install`
+2. `npm start`
+3. [http://localhost:3000](http://localhost:3000)
 
-This is a simple responsive admin template using [React](https://facebook.github.io/react/) and [Material-UI](http://www.material-ui.com/) components.
+online version with auto-deploy on commit 
+[https://dazzling-pasteur-3d2d65.netlify.com]
 
-This is the very first version, feel free to use for any app. Contributions are always welcome!
-
-Demo
-----
-
-You can find a demo [here](http://rafaelhz.github.io/react-material-admin-template).
-
-
-Installation / Running
-----------------------
-
-1. `git clone <repository-url>` this repository
-2. change into the new directory
-3. `npm install`
-4. `npm start` will run the app
-5. Visit the app at [http://localhost:3000](http://localhost:3000)
-
-
-License
--------
-MIT
-=======
-# prontuario-frontend
->>>>>>> 8fa6c1d45f8275cc13069b05fc2607c132dfbe48

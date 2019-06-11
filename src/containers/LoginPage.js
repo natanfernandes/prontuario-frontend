@@ -100,7 +100,7 @@ const LoginPage = () => {
                   iconStyle={styles.checkRemember.iconStyle}
                 />
 
-                <Link to="/">
+                <Link to="/perfilType">
                   <RaisedButton label="Login"
                                 primary={true}
                                 style={styles.loginBtn}/>
