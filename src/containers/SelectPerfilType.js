@@ -75,10 +75,10 @@ const SelectPerfilType = () => {
       <div>
         <div style={styles.loginContainer}>
           <div className="row">
-            <div className="col-12 col-lg-12" style={{ textAlign:'center' }}>
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" style={{ textAlign:'center' }}>
             <h1>Você é Médico e Paciente, escolha o tipo de perfil que irá acessar o sistema:</h1>
             </div>
-            <div className="col-6 col-lg-6" style={{ textAlign:'center' }}>
+            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6" style={{ textAlign:'center' }}>
               <Paper style={styles.paper}>
                 <Link to="/app/dashboard" onClick={() => setSessionPerfilType('Paciente')}>
                   <Avatar src={require("../images/user.png")} size={50} />
@@ -86,7 +86,7 @@ const SelectPerfilType = () => {
                 </Link>
               </Paper>
             </div>
-            <div className="col-6 col-lg-6" style={{ textAlign:'center' }}>
+            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6" style={{ textAlign:'center' }}>
               <Paper style={styles.paper}>
                 <Link to="/app/dashboard" onClick={() => setSessionPerfilType('Médico')}>
                   <Avatar src={require("../images/doctor.png")} size={50} />

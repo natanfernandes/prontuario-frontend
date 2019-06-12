@@ -5,6 +5,8 @@ import { white, blue600 } from "material-ui/styles/colors";
 import MenuItem from "material-ui/MenuItem";
 import { Link } from "react-router";
 import Avatar from "material-ui/Avatar";
+import Data from '../data';
+
 const styles = {
   logo: {
     cursor: "pointer",
@@ -52,20 +54,34 @@ class LeftDrawer extends React.Component {
     super(props);
     this.state = {
       navDrawerOpen: true,
-      sessionType: ''
+      sessionType: '',
+      menus:[]
     };
   }
   
   componentWillMount() {
+    const sessionType = localStorage.getItem('tipo');
     this.setState({
-      sessionType:localStorage.getItem('tipo')
+      sessionType:sessionType
     });
+    if(sessionType == "Médico"){
+      this.setState({
+        menus:Data.menusMedic
+      });
+    }
+    else if(sessionType == "Paciente"){
+      this.setState({
+        menus:Data.menusPacient
+      });
+    }
   }
+
   componentWillReceiveProps(nextProps) {
     if (this.props.navDrawerOpen !== nextProps.navDrawerOpen) {
       this.setState({ navDrawerOpen: nextProps.navDrawerOpen });
     }
   }
+
   render() {
     return (
       <Drawer docked={true} open={this.state.navDrawerOpen}>
@@ -80,7 +96,7 @@ class LeftDrawer extends React.Component {
           <span style={styles.avatar.span2}>{this.state.sessionType}</span>
         </div>
         <div>
-          {this.props.menus.map((menu, index) => (
+          {this.state.menus.map((menu, index) => (
             <MenuItem
               key={index}
               style={styles.menuItem}

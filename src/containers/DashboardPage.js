@@ -46,10 +46,10 @@ class DashboardPage extends React.Component {
         ) : (
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-              <RecentlyPacients data={Data.dashBoardPage.recentProducts} />
+              <RecentlyPacients data={Data.dashBoardPage.recentPacients} />
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-              <PacientsInHospital data={Data.dashBoardPage.recentExams} />
+              <PacientsInHospital data={Data.dashBoardPage.pacientsInHospital} />
             </div>
           </div>
         )}

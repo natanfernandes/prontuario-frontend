@@ -7,6 +7,7 @@ import Paper from "material-ui/Paper";
 import {  pink600, white } from "material-ui/styles/colors";
 import { typography } from "material-ui/styles";
 import FlatButton from 'material-ui/FlatButton';
+import {Link} from 'react-router';
 
 const PacientsInHospital = props => {
   const styles = {
@@ -34,10 +35,10 @@ const PacientsInHospital = props => {
         {props.data.map(item => (
           <div key={item.title}>
             <ListItem
-              leftAvatar={<Avatar src={require("../../images/doctor.png")} />}
+              leftAvatar={<Avatar src={require("../../images/pacient.png")} />}
               primaryText={item.title}
               secondaryText={item.text}
-              rightIconButton={<FlatButton label="Iniciar Consulta" style={{color:'green'}}/>}
+              rightIconButton={<Link to="/app/medicConsult"><FlatButton label="Iniciar Consulta" style={{color:'green'}}/></Link>}
             />
             <Divider inset={true} />
           </div>

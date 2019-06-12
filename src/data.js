@@ -9,15 +9,19 @@ import ExpandMore from 'material-ui/svg-icons/navigation/expand-more';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 
 const data = {
-  menus: [
+  menusPacient: [
     { text: 'DashBoard', icon: <Assessment/>, link: '/app/dashboard' },
     { text: 'Dados Médicos', icon: <Web/>, link: '/app/medicData' },
     { text: 'Consultas', icon: <GridOn/>, link: '/app/consults' },
     { text: 'Exames', icon: <GridOn/>, link: '/app/exams' },
     { text: 'Cirurgias', icon: <GridOn/>, link: '/app/surgeries' },
     { text: 'Internações', icon: <GridOn/>, link: '/app/internations' },
-    { text: 'Table Page', icon: <GridOn/>, link: '/app/table' },
-    { text: 'Login Page', icon: <PermIdentity/>, link: '/' }
+    { text: 'Sair', icon: <PermIdentity/>, link: '/' }
+  ],
+  menusMedic: [
+    { text: 'DashBoard', icon: <Assessment/>, link: '/app/dashboard' },
+    { text: 'Consultas', icon: <GridOn/>, link: '/app/consults' },
+    { text: 'Sair', icon: <PermIdentity/>, link: '/' }
   ],
   tablePage: {
     items: [
@@ -41,6 +45,18 @@ const data = {
       {id: 1, title: 'Eletrocardiograma', text: 'Hospital XXXXXX, Médico XXXX'},
       {id: 2, title: 'Ecocardiograma', text: 'Clínica XXXXXX, Médico XXXX'},
       {id: 3, title: 'Raspagem', text: 'Clínica XXXXXX, Médico XXXX'},
+    ],
+    recentPacients: [
+      {id: 1, title: 'Nome1', text: 'dd/mm/yyyy hh:mm'},
+      {id: 2, title: 'Nome2', text: 'dd/mm/yyyy hh:mm'},
+      {id: 3, title: 'Nome3', text: 'dd/mm/yyyy hh:mm'},
+    ],
+    pacientsInHospital: [
+      {id: 1, title: 'Nome1', text: 'dd/mm/yyyy hh:mm'},
+      {id: 2, title: 'Nome2', text: 'dd/mm/yyyy hh:mm'},
+      {id: 3, title: 'Nome3', text: 'dd/mm/yyyy hh:mm'},
+      {id: 4, title: 'Nome4', text: 'dd/mm/yyyy hh:mm'},
+      {id: 5, title: 'Nome5', text: 'dd/mm/yyyy hh:mm'},
     ],
     monthlySales: [
       {name: 'Jan', uv: 3700},

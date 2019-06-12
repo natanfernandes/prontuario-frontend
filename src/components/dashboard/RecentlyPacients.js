@@ -9,7 +9,7 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
-import {grey400, cyan600, white} from 'material-ui/styles/colors';
+import {grey400, purple600, white} from 'material-ui/styles/colors';
 import {typography} from 'material-ui/styles';
 import {Link} from 'react-router';
 
@@ -19,7 +19,7 @@ const RecentlyPacients = (props) => {
     subheader: {
       fontSize: 24,
       fontWeight: typography.fontWeightLight,
-      backgroundColor: cyan600,
+      backgroundColor: purple600,
       color: white
     }
   };
@@ -47,13 +47,13 @@ const RecentlyPacients = (props) => {
               Pacientes Recentes
             </div>
             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 m-b-15 ">
-              <Link to="/app/surgeries"><RaisedButton label="Ver todos" default={true} style={{ height:'100%'}} /></Link>
+              <Link to="/app/consults"><RaisedButton label="Ver todos" default={true} style={{ height:'100%'}} /></Link>
             </div>
           </div></Subheader>
         {props.data.map(item =>
           <div key={item.title}>
             <ListItem
-              leftAvatar={<Avatar src={require('../../images/user.png')} />}
+              leftAvatar={<Avatar src={require('../../images/pacient.png')} />}
               primaryText={item.title}
               secondaryText={item.text}
               rightIconButton={rightIconMenu}

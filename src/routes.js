@@ -7,10 +7,10 @@ import SelectPerfilType from './containers/SelectPerfilType';
 import MedicData from './containers/MedicData';
 import Exams from './containers/Exams';
 import Consults from './containers/Consults';
-import TablePage from './containers/TablePage';
 import Dashboard from './containers/DashboardPage';
 import Surgeries from './containers/Surgeries';
 import Internations from './containers/Internations';
+import MedicConsult from './containers/MedicConsult';
 
 export default (
   <Route>
@@ -24,8 +24,8 @@ export default (
       <Route path="exams" component={Exams}/>
       <Route path="surgeries" component={Surgeries}/>
       <Route path="internations" component={Internations}/>
-      <Route path="table" component={TablePage}/>
       <Route path="login" component={LoginPage}/>
+      <Route path="medicConsult" component={MedicConsult}/>
       <Route path="*" component={NotFoundPage}/>
     </Route>
   </Route>
