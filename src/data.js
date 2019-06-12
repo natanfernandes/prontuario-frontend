@@ -10,17 +10,17 @@ import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 
 const data = {
   menusPacient: [
-    { text: 'DashBoard', icon: <Assessment/>, link: '/app/dashboard' },
-    { text: 'Dados Médicos', icon: <Web/>, link: '/app/medicData' },
-    { text: 'Consultas', icon: <GridOn/>, link: '/app/consults' },
-    { text: 'Exames', icon: <GridOn/>, link: '/app/exams' },
-    { text: 'Cirurgias', icon: <GridOn/>, link: '/app/surgeries' },
-    { text: 'Internações', icon: <GridOn/>, link: '/app/internations' },
+    { text: 'DashBoard', icon: <Assessment/>, link: '/dashboard' },
+    { text: 'Dados Médicos', icon: <Web/>, link: '/medicData' },
+    { text: 'Consultas', icon: <GridOn/>, link: '/consults' },
+    { text: 'Exames', icon: <GridOn/>, link: '/exams' },
+    { text: 'Cirurgias', icon: <GridOn/>, link: '/surgeries' },
+    { text: 'Internações', icon: <GridOn/>, link: '/internations' },
     { text: 'Sair', icon: <PermIdentity/>, link: '/' }
   ],
   menusMedic: [
-    { text: 'DashBoard', icon: <Assessment/>, link: '/app/dashboard' },
-    { text: 'Consultas', icon: <GridOn/>, link: '/app/consults' },
+    { text: 'DashBoard', icon: <Assessment/>, link: '/dashboard' },
+    { text: 'Consultas', icon: <GridOn/>, link: '/consults' },
     { text: 'Sair', icon: <PermIdentity/>, link: '/' }
   ],
   tablePage: {

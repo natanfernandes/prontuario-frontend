@@ -80,7 +80,7 @@ const SelectPerfilType = () => {
             </div>
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6" style={{ textAlign:'center' }}>
               <Paper style={styles.paper}>
-                <Link to="/app/dashboard" onClick={() => setSessionPerfilType('Paciente')}>
+                <Link to="/dashboard" onClick={() => setSessionPerfilType('Paciente')}>
                   <Avatar src={require("../images/user.png")} size={50} />
                   <p>Paciente</p>
                 </Link>
@@ -88,7 +88,7 @@ const SelectPerfilType = () => {
             </div>
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6" style={{ textAlign:'center' }}>
               <Paper style={styles.paper}>
-                <Link to="/app/dashboard" onClick={() => setSessionPerfilType('Médico')}>
+                <Link to="/dashboard" onClick={() => setSessionPerfilType('Médico')}>
                   <Avatar src={require("../images/doctor.png")} size={50} />
                   <p>Médico</p>
                 </Link>

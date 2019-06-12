@@ -16,7 +16,7 @@ export default (
   <Route>
     <Route path="/" component={LoginPage}/>
     <Route path="/perfilType" component={SelectPerfilType}/>
-    <Route path="/app" component={App}>
+    <Route path="/" component={App}>
       {/* <IndexRoute component={Dashboard}/> */}
       <Route path="dashboard" component={Dashboard}/>
       <Route path="medicData" component={MedicData}/>

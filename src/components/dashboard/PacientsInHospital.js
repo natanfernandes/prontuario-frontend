@@ -38,7 +38,7 @@ const PacientsInHospital = props => {
               leftAvatar={<Avatar src={require("../../images/pacient.png")} />}
               primaryText={item.title}
               secondaryText={item.text}
-              rightIconButton={<Link to="/app/medicConsult"><FlatButton label="Iniciar Consulta" style={{color:'green'}}/></Link>}
+              rightIconButton={<Link to="/medicConsult"><FlatButton label="Iniciar Consulta" style={{color:'green'}}/></Link>}
             />
             <Divider inset={true} />
           </div>
