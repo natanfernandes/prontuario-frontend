@@ -5,6 +5,7 @@ import RecentlySurgeries from "../components/dashboard/RecentlySurgeries";
 import RecentlyPacients from "../components/dashboard/RecentlyPacients";
 import RecentlyInternations from "../components/dashboard/RecentlyInternations";
 import PacientsInHospital from "../components/dashboard/PacientsInHospital";
+import MarkedConsults from "../components/dashboard/MarkedConsults";
 import globalStyles from "../styles";
 import Data from "../data";
 
@@ -20,12 +21,9 @@ class DashboardPage extends React.Component {
       sessionType:localStorage.getItem("tipo")
     });
   }
-  render() {
-    return (
-      <div>
-        <h3 style={globalStyles.navigation}>Application / Dashboard </h3>
-        {this.state.sessionType === "Paciente" ? (
-          <div>
+  renderPerfilDashboard() {
+    if(this.state.sessionType === "Paciente") {
+      return (<div>
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
                 <RecentlyConsults data={Data.dashBoardPage.recentProducts} />
@@ -42,17 +40,32 @@ class DashboardPage extends React.Component {
                 <RecentlyInternations data={Data.dashBoardPage.recentExams} />
               </div>
             </div>
-          </div>
-        ) : (
-          <div className="row">
+          </div>);
+    }else if(this.state.sessionType === "Médico"){
+      return (<div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+              <RecentlyPacients data={Data.dashBoardPage.recentPacients} />
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+              <MarkedConsults data={Data.dashBoardPage.pacientsInHospital} />
+            </div>
+          </div>);
+    }else if(this.state.sessionType === "Secretário"){
+       return (<div className="row">
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
               <RecentlyPacients data={Data.dashBoardPage.recentPacients} />
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
               <PacientsInHospital data={Data.dashBoardPage.pacientsInHospital} />
             </div>
-          </div>
-        )}
+          </div>);
+    }
+  }
+  render() {
+    return (
+      <div>
+        <h3 style={globalStyles.navigation}>Application / Dashboard </h3>
+        {this.renderPerfilDashboard()}
       </div>
     );
   }

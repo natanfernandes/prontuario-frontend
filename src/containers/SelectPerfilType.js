@@ -78,19 +78,27 @@ const SelectPerfilType = () => {
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" style={{ textAlign:'center' }}>
             <h1>Você é Médico e Paciente, escolha o tipo de perfil que irá acessar o sistema:</h1>
             </div>
-            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6" style={{ textAlign:'center' }}>
+            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4" style={{ textAlign:'center' }}>
               <Paper style={styles.paper}>
                 <Link to="/dashboard" onClick={() => setSessionPerfilType('Paciente')}>
-                  <Avatar src={require("../images/user.png")} size={50} />
+                  <Avatar src={require("../images/pacient.png")} size={50} />
                   <p>Paciente</p>
                 </Link>
               </Paper>
             </div>
-            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6" style={{ textAlign:'center' }}>
+            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4" style={{ textAlign:'center' }}>
               <Paper style={styles.paper}>
                 <Link to="/dashboard" onClick={() => setSessionPerfilType('Médico')}>
                   <Avatar src={require("../images/doctor.png")} size={50} />
                   <p>Médico</p>
+                </Link>
+              </Paper>
+            </div>
+            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4" style={{ textAlign:'center' }}>
+              <Paper style={styles.paper}>
+                <Link to="/dashboard" onClick={() => setSessionPerfilType('Secretário')}>
+                  <Avatar src={require("../images/secretario.png")} size={50} />
+                  <p>Secretário</p>
                 </Link>
               </Paper>
             </div>

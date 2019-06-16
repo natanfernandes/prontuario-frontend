@@ -26,7 +26,7 @@ const PacientsInHospital = props => {
         <Subheader style={styles.subheader}>
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-15 " style={{textAlign:'center'}}>
-              Pacientes No Hospital
+              Consultas Marcadas
               <br />
               <b>Hospital XXXXXXXXXX</b>
             </div>
@@ -38,7 +38,7 @@ const PacientsInHospital = props => {
               leftAvatar={<Avatar src={require("../../images/pacient.png")} />}
               primaryText={item.title}
               secondaryText={item.text}
-              rightIconButton={<Link to="/medicConsult"><FlatButton label="Marcar Consulta" style={{color:'green'}}/></Link>}
+              rightIconButton={<Link to="/medicConsult"><FlatButton label="Iniciar Consulta" style={{color:'green'}}/></Link>}
             />
             <Divider inset={true} />
           </div>
