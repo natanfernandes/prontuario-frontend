@@ -15,7 +15,7 @@ import Wallpaper from 'material-ui/svg-icons/device/wallpaper';
 import {Link} from 'react-router';
 
 const RecentlyExams = (props) => {
-
+  
   const styles = {
     subheader: {
       fontSize: 24,

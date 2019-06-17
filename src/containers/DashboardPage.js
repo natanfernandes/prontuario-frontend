@@ -8,6 +8,8 @@ import PacientsInHospital from "../components/dashboard/PacientsInHospital";
 import MarkedConsults from "../components/dashboard/MarkedConsults";
 import globalStyles from "../styles";
 import Data from "../data";
+import axios from 'axios';
+
 
 class DashboardPage extends React.Component {
   constructor(props) {
@@ -20,6 +22,14 @@ class DashboardPage extends React.Component {
     this.setState({
       sessionType:localStorage.getItem("tipo")
     });
+    console.log(Data.dashBoardPage.recentExams)
+  }
+
+  componentDidMount  () {
+    let res = axios.get(`http://localhost:5000/pacientes/${localStorage.getItem('userCpf')}/exames`);
+    let { data } = res.data;
+    console.log(res);
+    this.setState({ users: data });
   }
   renderPerfilDashboard() {
     if(this.state.sessionType === "Paciente") {

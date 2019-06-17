@@ -10,10 +10,9 @@ import Help from 'material-ui/svg-icons/action/help';
 import TextField from 'material-ui/TextField';
 import {Link} from 'react-router';
 import ThemeDefault from '../theme-default';
+import axios from 'axios';
 
-const LoginPage = () => {
-
-  const styles = {
+const styles = {
     loginContainer: {
       minWidth: 320,
       maxWidth: 400,
@@ -71,7 +70,54 @@ const LoginPage = () => {
       marginLeft: 5
     },
   };
+class LoginPage  extends React.Component  {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      senha: '',
+      loginRes:{}
+    };
+  }
+  handleChangeEmail(event) {
+    this.setState({ email: event.target.value });
+  }
+  handleChangePassword(event){
+    this.setState({ senha: event.target.value });
+  }
 
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const user = {
+      email: this.state.email,
+      senha: this.state.senha,
+    };
+    console.log(user);
+  }
+  login() {
+    const user = {
+      email: this.state.email,
+      senha: this.state.senha,
+    };
+    
+    axios.post(`http://localhost:5000/login`,  user )
+      .then(res => {
+        console.log(res.data);
+        localStorage.setItem('cpfUser',res.data.cpf);
+        if(res.data.crm){
+          localStorage.setItem('crmUser',res.data.crm);
+        }
+        if(res.data.medico){
+          localStorage.setItem('medico',res.data.medico);
+        }
+        if(res.data.secretario){
+          localStorage.setItem('secretario',res.data.secretario);
+        }
+      })
+    
+  }
+  render() {
   return (
     <MuiThemeProvider muiTheme={ThemeDefault}>
       <div>
@@ -79,17 +125,21 @@ const LoginPage = () => {
 
           <Paper style={styles.paper}>
 
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <TextField
                 hintText="E-mail"
                 floatingLabelText="E-mail"
                 fullWidth={true}
+                name="email"
+                onChange={this.handleChangeEmail.bind(this)}
               />
               <TextField
                 hintText="Password"
                 floatingLabelText="Password"
                 fullWidth={true}
+                name="senha"
                 type="password"
+                onChange={this.handleChangePassword.bind(this)}
               />
 
               <div>
@@ -103,7 +153,10 @@ const LoginPage = () => {
                 <Link to="/perfilType">
                   <RaisedButton label="Login"
                                 primary={true}
-                                style={styles.loginBtn}/>
+                                style={styles.loginBtn}
+                                type="submit"
+                                onClick={this.login.bind(this)}
+                                />
                 </Link>
               </div>
             </form>
@@ -139,6 +192,7 @@ const LoginPage = () => {
       </div>
     </MuiThemeProvider>
   );
-};
+  }
+}
 
 export default LoginPage;
