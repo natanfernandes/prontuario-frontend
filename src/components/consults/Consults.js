@@ -46,11 +46,11 @@ const Consults = (props) => {
             </div>
           </div></Subheader>
         {props.data.map(item =>
-          <div key={item.title}>
+          <div key={item.data}>
             <ListItem
               leftAvatar={<Avatar src={require('../../images/doctor.png')} />}
-              primaryText={item.title}
-              secondaryText={item.text}
+              primaryText={item.cpf_paciente}
+              secondaryText={item.crm_medico + ' , '+item.data}
               rightIconButton={rightIconMenu}
             />
             <Divider inset={true} />

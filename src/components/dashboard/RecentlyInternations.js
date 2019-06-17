@@ -49,11 +49,11 @@ const RecentlyInternations = props => {
           </div>
         </Subheader>
         {props.data.map(item => (
-          <div key={item.title}>
+          <div key={item.cpf_paciente}>
             <ListItem
               leftAvatar={<Avatar src={require("../../images/doctor.png")} />}
-              primaryText={item.title}
-              secondaryText={item.text}
+              primaryText={item.descricao}
+              secondaryText={item.crm_medico + ' , '+item.cnpj_hospital}
               rightIconButton={rightIconMenu}
             />
             <Divider inset={true} />

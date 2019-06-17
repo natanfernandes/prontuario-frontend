@@ -47,8 +47,8 @@ const Internations = props => {
           <div key={item.title}>
             <ListItem
               leftAvatar={<Avatar src={require("../../images/doctor.png")} />}
-              primaryText={item.title}
-              secondaryText={item.text}
+              primaryText={item.descricao}
+              secondaryText={item.crm_medico + ' , '+item.cnpj_hospital}
               rightIconButton={rightIconMenu}
             />
             <Divider inset={true} />

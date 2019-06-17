@@ -8,67 +8,92 @@ import PacientsInHospital from "../components/dashboard/PacientsInHospital";
 import MarkedConsults from "../components/dashboard/MarkedConsults";
 import globalStyles from "../styles";
 import Data from "../data";
-import axios from 'axios';
-
+import axios from "axios";
+require("babel-polyfill");
 
 class DashboardPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sessionType: ''
+      sessionType: "",
+      exams: [],
+      consults: [],
+      internations: [],
+      surgeries: []
     };
   }
   componentWillMount() {
     this.setState({
-      sessionType:localStorage.getItem("tipo")
+      sessionType: localStorage.getItem("tipo")
     });
-    console.log(Data.dashBoardPage.recentExams)
   }
+  async componentDidMount() {
+    const cpf = localStorage.getItem("cpfUser");
+    await axios
+      .get(`http://localhost:5000/pacientes/${cpf}/exames`)
+      .then(res => this.setState({ exams: res.data }));
 
-  componentDidMount  () {
-    let res = axios.get(`http://localhost:5000/pacientes/${localStorage.getItem('userCpf')}/exames`);
-    let { data } = res.data;
-    console.log(res);
-    this.setState({ users: data });
+    await axios
+      .get(`http://localhost:5000/pacientes/${cpf}/consultas`)
+      .then(res2 => this.setState({ consults: res2.data }));
+
+    await axios
+      .get(`http://localhost:5000/pacientes/${cpf}/internacoes`)
+      .then(res3 => this.setState({ internations: res3.data }));
+
+    await axios
+      .get(`http://localhost:5000/pacientes/${cpf}/cirurgias`)
+      .then(res4 => this.setState({ surgeries: res4.data }));
   }
+  // async componentDidMount() {
+  //   const response = await fetch(`http://localhost:5000/pacientes/${localStorage.getItem('userCpf')}/exames`);
+  //   const json = await response.json();
+  //   console.log(json)
+  // }
   renderPerfilDashboard() {
-    if(this.state.sessionType === "Paciente") {
-      return (<div>
-            <div className="row">
-              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-                <RecentlyConsults data={Data.dashBoardPage.recentProducts} />
-              </div>
-              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-                <RecentlyExams data={Data.dashBoardPage.recentExams} />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-                <RecentlySurgeries data={Data.dashBoardPage.recentProducts} />
-              </div>
-              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-                <RecentlyInternations data={Data.dashBoardPage.recentExams} />
-              </div>
-            </div>
-          </div>);
-    }else if(this.state.sessionType === "Médico"){
-      return (<div className="row">
+    if (this.state.sessionType === "Paciente") {
+      return (
+        <div>
+          <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-              <RecentlyPacients data={Data.dashBoardPage.recentPacients} />
+              <RecentlyConsults data={this.state.consults} />
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-              <MarkedConsults data={Data.dashBoardPage.pacientsInHospital} />
+              <RecentlyExams data={this.state.exams} />
             </div>
-          </div>);
-    }else if(this.state.sessionType === "Secretário"){
-       return (<div className="row">
+          </div>
+          <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-              <RecentlyPacients data={Data.dashBoardPage.recentPacients} />
+              <RecentlySurgeries data={this.state.surgeries} />
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-              <PacientsInHospital data={Data.dashBoardPage.pacientsInHospital} />
+              <RecentlyInternations data={this.state.internations} />
             </div>
-          </div>);
+          </div>
+        </div>
+      );
+    } else if (this.state.sessionType === "Médico") {
+      return (
+        <div className="row">
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+            <RecentlyPacients data={Data.dashBoardPage.recentPacients} />
+          </div>
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+            <MarkedConsults data={Data.dashBoardPage.pacientsInHospital} />
+          </div>
+        </div>
+      );
+    } else if (this.state.sessionType === "Secretário") {
+      return (
+        <div className="row">
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+            <RecentlyPacients data={Data.dashBoardPage.recentPacients} />
+          </div>
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+            <PacientsInHospital data={Data.dashBoardPage.pacientsInHospital} />
+          </div>
+        </div>
+      );
     }
   }
   render() {

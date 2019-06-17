@@ -88,12 +88,6 @@ class LoginPage  extends React.Component  {
 
   handleSubmit(event) {
     event.preventDefault();
-
-    const user = {
-      email: this.state.email,
-      senha: this.state.senha,
-    };
-    console.log(user);
   }
   login() {
     const user = {
@@ -103,7 +97,6 @@ class LoginPage  extends React.Component  {
     
     axios.post(`http://localhost:5000/login`,  user )
       .then(res => {
-        console.log(res.data);
         localStorage.setItem('cpfUser',res.data.cpf);
         if(res.data.crm){
           localStorage.setItem('crmUser',res.data.crm);
@@ -114,7 +107,7 @@ class LoginPage  extends React.Component  {
         if(res.data.secretario){
           localStorage.setItem('secretario',res.data.secretario);
         }
-      })
+      });
     
   }
   render() {

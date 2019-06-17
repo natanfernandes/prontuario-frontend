@@ -82,24 +82,24 @@ class SelectPerfilType extends React.Component {
     let medico = false;
     let secretario = false;
 
-    if(localStorage.getItem("cpfUser")) {
+    if (localStorage.getItem("cpfUser")) {
       cpf = localStorage.getItem("cpfUser");
     }
-    if(localStorage.getItem("crmUser")) {
+    if (localStorage.getItem("crmUser")) {
       crm = localStorage.getItem("crmUser");
     }
-    if(localStorage.getItem("medico")) {
+    if (localStorage.getItem("medico")) {
       medico = localStorage.getItem("medico");
     }
-    if(localStorage.getItem("secretario")) {
+    if (localStorage.getItem("secretario")) {
       secretario = localStorage.getItem("secretario");
     }
- 
+
     this.setState({
       cpfUser: cpf,
       crmUser: crm,
       medico: medico,
-      secretario:secretario
+      secretario: secretario
     });
   }
   setSessionPerfilType(type) {
@@ -132,40 +132,52 @@ class SelectPerfilType extends React.Component {
                   </Link>
                 </Paper>
               </div>
-              {this.state.medico ? <div
-                className="col-xs-4 col-sm-4 col-md-4 col-lg-4"
-                style={{ textAlign: "center" }}
-              >
-                <Paper style={styles.paper}>
-                  <Link
-                    to="/dashboard"
-                    onClick={() => this.setSessionPerfilType("Médico")}
-                  >
-                    <Avatar src={require("../images/doctor.png")} size={50} />
-                    <p>Médico</p>
-                  </Link>
-                </Paper>
-              </div>: <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"
-                style={{ textAlign: "center" }}></div>}
-              
-              {this.state.secretario ? <div
-                className="col-xs-4 col-sm-4 col-md-4 col-lg-4"
-                style={{ textAlign: "center" }}
-              >
-                <Paper style={styles.paper}>
-                  <Link
-                    to="/dashboard"
-                    onClick={() => this.setSessionPerfilType("Secretário")}
-                  >
-                    <Avatar
-                      src={require("../images/secretario.png")}
-                      size={50}
-                    />
-                    <p>Secretário</p>
-                  </Link>
-                </Paper>
-              </div>: <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"
-                style={{ textAlign: "center" }}></div>}
+              {this.state.medico ? (
+                <div
+                  className="col-xs-4 col-sm-4 col-md-4 col-lg-4"
+                  style={{ textAlign: "center" }}
+                >
+                  <Paper style={styles.paper}>
+                    <Link
+                      to="/dashboard"
+                      onClick={() => this.setSessionPerfilType("Médico")}
+                    >
+                      <Avatar src={require("../images/doctor.png")} size={50} />
+                      <p>Médico</p>
+                    </Link>
+                  </Paper>
+                </div>
+              ) : (
+                <div
+                  className="col-xs-4 col-sm-4 col-md-4 col-lg-4"
+                  style={{ textAlign: "center" }}
+                />
+              )}
+
+              {this.state.secretario ? (
+                <div
+                  className="col-xs-4 col-sm-4 col-md-4 col-lg-4"
+                  style={{ textAlign: "center" }}
+                >
+                  <Paper style={styles.paper}>
+                    <Link
+                      to="/dashboard"
+                      onClick={() => this.setSessionPerfilType("Secretário")}
+                    >
+                      <Avatar
+                        src={require("../images/secretario.png")}
+                        size={50}
+                      />
+                      <p>Secretário</p>
+                    </Link>
+                  </Paper>
+                </div>
+              ) : (
+                <div
+                  className="col-xs-4 col-sm-4 col-md-4 col-lg-4"
+                  style={{ textAlign: "center" }}
+                />
+              )}
             </div>
           </div>
         </div>

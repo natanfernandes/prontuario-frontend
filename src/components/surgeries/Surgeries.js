@@ -49,8 +49,8 @@ const Surgeries = (props) => {
           <div key={item.title}>
             <ListItem
               leftAvatar={<Avatar src={require('../../images/doctor.png')} />}
-              primaryText={item.title}
-              secondaryText={item.text}
+              primaryText={item.descricao}
+              secondaryText={item.data}
               rightIconButton={rightIconMenu}
             />
             <Divider inset={true} />

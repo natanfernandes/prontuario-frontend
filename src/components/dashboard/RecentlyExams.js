@@ -52,11 +52,11 @@ const RecentlyExams = (props) => {
             </div>
           </div></Subheader>
         {props.data.map(item =>
-          <div key={item.title}>
+          <div key={item.tipo}>
             <ListItem
               leftAvatar={<Avatar icon={<Wallpaper />} />}
-              primaryText={item.title}
-              secondaryText={item.text}
+              primaryText={item.tipo}
+              secondaryText={item.nome_local +' , '+item.data}
               rightIconButton={rightIconMenu}
             />
             <Divider inset={true} />

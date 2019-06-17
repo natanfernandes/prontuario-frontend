@@ -6,6 +6,8 @@ import MenuItem from "material-ui/MenuItem";
 import { Link } from "react-router";
 import Avatar from "material-ui/Avatar";
 import Data from '../data';
+import axios from "axios";
+require("babel-polyfill");
 
 const styles = {
   logo: {
@@ -55,7 +57,8 @@ class LeftDrawer extends React.Component {
     this.state = {
       navDrawerOpen: true,
       sessionType: '',
-      menus:[]
+      menus:[],
+      username:''
     };
   }
   
@@ -75,7 +78,12 @@ class LeftDrawer extends React.Component {
       });
     }
   }
-
+  async componentDidMount() {
+    const cpf = localStorage.getItem("cpfUser");
+    await axios
+      .get(`http://localhost:5000/pacientes/${cpf}`)
+      .then(res => this.setState({ username: res.data.nome }));
+  }
   componentWillReceiveProps(nextProps) {
     if (this.props.navDrawerOpen !== nextProps.navDrawerOpen) {
       this.setState({ navDrawerOpen: nextProps.navDrawerOpen });
@@ -92,7 +100,7 @@ class LeftDrawer extends React.Component {
             size={50}
             style={styles.avatar.icon}
           />
-          <span style={styles.avatar.span}>Nome</span>
+          <span style={styles.avatar.span}>{this.state.username}</span>
           <span style={styles.avatar.span2}>{this.state.sessionType}</span>
         </div>
         <div>
