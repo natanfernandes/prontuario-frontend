@@ -3,6 +3,7 @@ import RecentlyConsults from "../components/dashboard/RecentlyConsults";
 import RecentlyExams from "../components/dashboard/RecentlyExams";
 import RecentlySurgeries from "../components/dashboard/RecentlySurgeries";
 import RecentlyPacients from "../components/dashboard/RecentlyPacients";
+import MakeCheckin from "../components/dashboard/MakeCheckin";
 import RecentlyInternations from "../components/dashboard/RecentlyInternations";
 import PacientsInHospital from "../components/dashboard/PacientsInHospital";
 import MarkedConsults from "../components/dashboard/MarkedConsults";
@@ -19,7 +20,11 @@ class DashboardPage extends React.Component {
       exams: [],
       consults: [],
       internations: [],
-      surgeries: []
+      surgeries: [],
+      sec:{},
+      hosp:{},
+      recentPacients:[],
+      med:{}
     };
   }
   componentWillMount() {
@@ -29,6 +34,10 @@ class DashboardPage extends React.Component {
   }
   async componentDidMount() {
     const cpf = localStorage.getItem("cpfUser");
+    let crm = '';
+    if(localStorage.getItem("crmUser")){
+      crm = localStorage.getItem("crmUser");
+    }
     await axios
       .get(`http://localhost:5000/pacientes/${cpf}/exames`)
       .then(res => this.setState({ exams: res.data }));
@@ -44,6 +53,31 @@ class DashboardPage extends React.Component {
     await axios
       .get(`http://localhost:5000/pacientes/${cpf}/cirurgias`)
       .then(res4 => this.setState({ surgeries: res4.data }));
+
+    if (this.state.sessionType == "Secretário") {
+      await axios
+        .get(`http://localhost:5000/secretarios/${cpf}`)
+        .then(res5 => this.setState({ sec: res5.data }));
+      await axios
+        .get(`http://localhost:5000/hospitais/${this.state.sec.cnpj_hospital}`)
+        .then(res6 => this.setState({ hosp: res6.data }));
+      await axios
+        .get(`http://localhost:5000/hospitais/${this.state.sec.cnpj_hospital}/checkins`)
+        .then(res6 => this.setState({ recentPacients: res6.data }));
+        console.log(this.state.recentPacients)
+    }
+    if (this.state.sessionType == "Médico") {
+      await axios
+        .get(`http://localhost:5000/medicos/${crm}`)
+        .then(res5 => this.setState({ med: res5.data }));
+      await axios
+        .get(`http://localhost:5000/hospitais/${this.state.med.hospitais[0]}`)
+        .then(res6 => this.setState({ hosp: res6.data }));
+      await axios
+        .get(`http://localhost:5000/hospitais/${this.state.med.hospitais[0]}/checkins`)
+        .then(res6 => this.setState({ recentPacients: res6.data }));
+        console.log(this.state.recentPacients)
+    }
   }
   // async componentDidMount() {
   //   const response = await fetch(`http://localhost:5000/pacientes/${localStorage.getItem('userCpf')}/exames`);
@@ -76,10 +110,10 @@ class DashboardPage extends React.Component {
       return (
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-            <RecentlyPacients data={Data.dashBoardPage.recentPacients} />
+            <RecentlyPacients data={this.state.recentPacients} />
           </div>
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-            <MarkedConsults data={Data.dashBoardPage.pacientsInHospital} />
+            <MarkedConsults data={this.state.recentPacients} hosp={this.state.hosp.nome}/>
           </div>
         </div>
       );
@@ -87,10 +121,12 @@ class DashboardPage extends React.Component {
       return (
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-            <RecentlyPacients data={Data.dashBoardPage.recentPacients} />
+            <MakeCheckin />
+            <br />
+            <RecentlyPacients data={this.state.recentPacients} />
           </div>
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-            <PacientsInHospital data={Data.dashBoardPage.pacientsInHospital} />
+            <PacientsInHospital data={this.state.recentPacients} hosp={this.state.hosp.nome}/>
           </div>
         </div>
       );

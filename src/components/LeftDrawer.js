@@ -77,6 +77,11 @@ class LeftDrawer extends React.Component {
         menus:Data.menusPacient
       });
     }
+    else if(sessionType == "Secretário"){
+      this.setState({
+        menus:Data.menusSec
+      });
+    }
   }
   async componentDidMount() {
     const cpf = localStorage.getItem("cpfUser");

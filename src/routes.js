@@ -25,7 +25,7 @@ export default (
       <Route path="surgeries" component={Surgeries}/>
       <Route path="internations" component={Internations}/>
       <Route path="login" component={LoginPage}/>
-      <Route path="medicConsult" component={MedicConsult}/>
+      <Route path="medicConsult/:cpf_paciente" component={MedicConsult}/>
       <Route path="*" component={NotFoundPage}/>
     </Route>
   </Route>

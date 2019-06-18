@@ -23,6 +23,10 @@ const data = {
     { text: 'Consultas', icon: <GridOn/>, link: '/consults' },
     { text: 'Sair', icon: <PermIdentity/>, link: '/' }
   ],
+   menusSec: [
+    { text: 'DashBoard', icon: <Assessment/>, link: '/dashboard' },
+    { text: 'Sair', icon: <PermIdentity/>, link: '/' }
+  ],
   tablePage: {
     items: [
       {id: 1, name: 'Product 1', price: '$50.00', category: 'Category 1'},

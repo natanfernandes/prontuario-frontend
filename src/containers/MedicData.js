@@ -2,6 +2,10 @@ import React from "react";
 import InfoBox from "../components/dashboard/InfoBox";
 import { red900 } from "material-ui/styles/colors";
 import Avatar from "material-ui/Avatar";
+import RecentlyConsults from "../components/dashboard/RecentlyConsults";
+import RecentlyExams from "../components/dashboard/RecentlyExams";
+import RecentlySurgeries from "../components/dashboard/RecentlySurgeries";
+import RecentlyInternations from "../components/dashboard/RecentlyInternations";
 import Alerggies from "../components/Alerggies";
 import ChronicDiseases from "../components/Diseases";
 import PageBase from "../components/PageBase";
@@ -14,7 +18,11 @@ class MedicDataPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: []
+      user: [],
+      exams: [],
+      consults: [],
+      internations: [],
+      surgeries: []
     };
   }
 
@@ -23,6 +31,22 @@ class MedicDataPage extends React.Component {
     await axios
       .get(`http://localhost:5000/pacientes/${cpf}`)
       .then(res => this.setState({ user: res.data }));
+
+    await axios
+      .get(`http://localhost:5000/pacientes/${cpf}/exames`)
+      .then(res => this.setState({ exams: res.data }));
+
+    await axios
+      .get(`http://localhost:5000/pacientes/${cpf}/consultas`)
+      .then(res2 => this.setState({ consults: res2.data }));
+
+    await axios
+      .get(`http://localhost:5000/pacientes/${cpf}/internacoes`)
+      .then(res3 => this.setState({ internations: res3.data }));
+
+    await axios
+      .get(`http://localhost:5000/pacientes/${cpf}/cirurgias`)
+      .then(res4 => this.setState({ surgeries: res4.data }));
   }
   render() {
     return (
@@ -52,7 +76,6 @@ class MedicDataPage extends React.Component {
             />
           </div>
         </div>
-
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
             <Alerggies data={Data.dashBoardPage.recentExams} />
@@ -60,6 +83,24 @@ class MedicDataPage extends React.Component {
 
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
             <ChronicDiseases data={Data.dashBoardPage.recentExams} />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+            <RecentlyConsults data={this.state.consults} />
+          </div>
+
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+            <RecentlyExams data={this.state.exams} />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+            <RecentlyInternations data={this.state.internations} />
+          </div>
+
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
+            <RecentlySurgeries data={this.state.surgeries} />
           </div>
         </div>
       </PageBase>

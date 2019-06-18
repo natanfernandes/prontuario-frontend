@@ -52,7 +52,7 @@ const RecentlyExams = (props) => {
             </div>
           </div></Subheader>
         {props.data.map(item =>
-          <div key={item.tipo}>
+          <div key={item.index}>
             <ListItem
               leftAvatar={<Avatar icon={<Wallpaper />} />}
               primaryText={item.tipo}

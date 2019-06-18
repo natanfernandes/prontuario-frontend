@@ -51,7 +51,7 @@ const RecentlySurgeries = (props) => {
             </div>
           </div></Subheader>
         {props.data.map(item =>
-          <div key={item.cpf_paciente}>
+          <div key={item.index}>
             <ListItem
               leftAvatar={<Avatar src={require('../../images/doctor.png')} />}
               primaryText={item.descricao}
