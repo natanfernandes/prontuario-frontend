@@ -38,7 +38,7 @@ const PacientsInHospital = props => {
           <div key={item.cpf_paciente}>
             <ListItem
               leftAvatar={<Avatar src={require("../../images/pacient.png")} />}
-              primaryText={item.cpf_paciente}
+              primaryText={item.nome_paciente}
               secondaryText={item.data}
               rightIconButton={
                 <Link
